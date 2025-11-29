@@ -1,39 +1,45 @@
 package co.istad.system.movies;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.List;
 
-public class Movies {
-    private String movieId;
+public class Movie {
     private String title;
+    private String releaseDate;
     private String genre;
-    private LocalDate releaseYear;
-    private LocalDateTime duration;
+    private String duration;
+    private String rating;
+    private Director director;
+    private List<MainCast> mainCast;
 
-    public Movies(){};
+    public Movie() {
+    }
 
-    public Movies(String movieId, String title, String genre, LocalDate releaseYear, LocalDateTime duration) {
-        this.movieId = movieId;
+    public Movie(String title, String releaseDate, String genre, String duration, String rating, Director director, List<MainCast> mainCast) {
         this.title = title;
+        this.releaseDate = releaseDate;
         this.genre = genre;
-        this.releaseYear = releaseYear;
         this.duration = duration;
-    }
-
-    public String getMovieId() {
-        return movieId;
-    }
-
-    public void setMovieId(String movieId) {
-        this.movieId = movieId;
+        this.rating = rating;
+        this.director = director;
+        this.mainCast = mainCast;
     }
 
     public String getTitle() {
+
+    }
         return title;
     }
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     public String getGenre() {
@@ -44,19 +50,47 @@ public class Movies {
         this.genre = genre;
     }
 
-    public LocalDate getReleaseYear() {
-        return releaseYear;
-    }
-
-    public void setReleaseYear(LocalDate releaseYear) {
-        this.releaseYear = releaseYear;
-    }
-
-    public LocalDateTime getDuration() {
+    public String getDuration() {
         return duration;
     }
 
-    public void setDuration(LocalDateTime duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
+    public Director getDirector() {
+        return director;
+    }
+
+    public void setDirector(Director director) {
+        this.director = director;
+    }
+
+    public List<MainCast> getMainCast() {
+        return mainCast;
+    }
+
+    public void setMainCast(List<MainCast> mainCast) {
+        this.mainCast = mainCast;
+    }
+@Override
+public String toString() {
+    return "Movie {" +
+            "\n  Title = '" + title + '\'' +
+            ",\n  Release Date = '" + releaseDate + '\'' +
+            ",\n  Genre = '" + genre + '\'' +
+            ",\n  Duration = '" + duration + '\'' +
+            ",\n  Rating = '" + rating + '\'' +
+            ",\n  Director = " + director +
+            ",\n  Main Cast = " + mainCast +
+            "\n}";
+}
 }
