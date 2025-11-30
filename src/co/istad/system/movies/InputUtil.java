@@ -35,7 +35,7 @@ public class InputUtil {
                 String input = scanner.nextLine();
                 return Year.parse(input, format);
             } catch (DateTimeParseException e) {
-                ViewUtil.print("❌ Invalid year format! Please use yyyy.\n", true);
+                ViewUtil.print(" Invalid year format! Please use yyyy.\n", true);
             }
         } while (true);
     }
@@ -50,7 +50,7 @@ public class InputUtil {
                 String input = scanner.nextLine();
                 return LocalTime.parse(input, format);
             } catch (DateTimeParseException e) {
-                ViewUtil.print(label + " ❌ Invalid date-time format! Please use HH:mm.\n", true);
+                ViewUtil.print(label + "  Invalid date-time format! Please use HH:mm.\n", true);
             }
         } while (true);
     }
