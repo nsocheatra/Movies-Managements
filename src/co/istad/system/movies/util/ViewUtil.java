@@ -26,7 +26,7 @@ public class ViewUtil {
     public static void printAppName() {
         Table table = new Table(1, BorderStyle.UNICODE_BOX_HEAVY_BORDER_WIDE);
         CellStyle cellStyle = new CellStyle(CellStyle.HorizontalAlign.center);
-        table.setColumnWidth(0, 77, 80);
+        table.setColumnWidth(0, 68, 100);
         table.addCell("Movie Management System", cellStyle);
         print(table.render(), true);
     }
@@ -36,13 +36,13 @@ public class ViewUtil {
         CellStyle cellStyle = new CellStyle(CellStyle.HorizontalAlign.center);
         table.setColumnWidth(0, 50, 80);
         table.addCell("Application Menu", cellStyle);
-        table.addCell("(1)Display Movies     (2)Display Halls     (3)Add & Update Movies ", cellStyle);
-        table.addCell("(4)Update Movies     (5)Delete Movies     (0)Exit", cellStyle);
+        table.addCell("(1)Display Movies     (2)Display Halls     (3)Booking Movies & Hall ", cellStyle);
+        table.addCell("(4)Add & Update Movies     (5)Delete Movies     (0)Exit", cellStyle);
         print(table.render(), true);
     }
 
     public static void printMovieList(List<Movie> movieList) {
-        Table table = new Table(6, BorderStyle.UNICODE_ROUND_BOX_WIDE);
+        Table table = new Table(7, BorderStyle.UNICODE_ROUND_BOX_WIDE);
 
         table.addCell("ID");
         table.addCell("Title");

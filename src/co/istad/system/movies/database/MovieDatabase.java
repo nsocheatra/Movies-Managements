@@ -11,12 +11,14 @@ public class MovieDatabase {
     private List<Movie> dataset;
 
     public MovieDatabase(){
-        Movie spiderman = new Movie(UUID.randomUUID().toString(),"Eddington","Jul 18,2025","Western","2h 28m","Ari Aster","Joaquin Phoenix");
-        Movie avatar2 = new Movie(UUID.randomUUID().toString(),"Eddington","Jul 18,2025","Western","2h 28m","Ari Aster","Joaquin Phoenix");
+        Movie Wicked = new Movie(UUID.randomUUID().toString(),"Wicked: For Good","Nov 21,2025","Musical","2h 18m","Jon M.Chu","Ariana Grande");
+        Movie Eddington  = new Movie(UUID.randomUUID().toString(),"Eddington","Jul 18,2025","Western","2h 28m","Ari Aster","Joaquin Phoenix");
+        Movie DemonSlayer  = new Movie(UUID.randomUUID().toString(),"Demon Slayer","Sep 12,2025","Animated","2h 35m","Haruo Sotozaki","Natsuki Hanae");
 
         dataset = new ArrayList<>();
-        dataset.add(spiderman);
-        dataset.add(avatar2);
+        dataset.add(Wicked);
+        dataset.add(Eddington);
+        dataset.add(DemonSlayer);
     }
 
 

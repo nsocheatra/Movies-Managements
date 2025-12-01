@@ -30,7 +30,17 @@ public class MovieApp {
         }while (true);
     }
     public void displayAllMovie(){
-        ViewUtil.printMessage("Display All Movies");
+        ViewUtil.printMessage("Display All Movies".toUpperCase());
+        ViewUtil.printMovieList(movieService.findAll().reversed());
+    }
+    private void addNew(){
+        ViewUtil.printMessage("Add New Movie");
+        String title = InputUtil.getText("Enter Title");
+        String releaseDate = InputUtil.getText("Enter Release Date");
+        String genre = InputUtil.getText("Enter Genre");
+        String duration = InputUtil.getText("Enter Duration");
+        String director = InputUtil.getText("Enter Director");
+        String mainCast = InputUtil.getText("Enter Caster");
 
     }
 }

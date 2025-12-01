@@ -2,7 +2,7 @@ package co.istad.system.movies.service;
 
 import co.istad.system.movies.model.Movie;
 
-import java.util.List; // Import List for the return type
+import java.util.List;
 
 public interface MovieService {
 
