@@ -1,36 +1,34 @@
-package co.istad.system.movies;
+package co.istad.system.movies.model;
 
-import java.time.LocalDate;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+
 
 public class Movie {
-    private UUID mvId;
+    private String mvId;
     private String title;
     private String releaseDate;
-    private String grenre;
+    private String genre;
     private String duration;
-    private Director director;
-    private MainCast mainCasts;
-    public Movie(){
-    }
+    private String director;
+    private String mainCasts;
 
-    public Movie(UUID mvId, String title, String releaseDate, String grenre, String duration, Director director, MainCast mainCasts) {
+    public Movie(String mvId, String title, String releaseDate, String genre, String duration, String director, String mainCasts) {
         this.mvId = mvId;
         this.title = title;
         this.releaseDate = releaseDate;
-        this.grenre = grenre;
+        this.genre = genre;
         this.duration = duration;
         this.director = director;
         this.mainCasts = mainCasts;
     }
 
-    public UUID getMvId(UUID mvId) {
+    public Movie(String title, String releaseDate, String genre, String duration, String director, String mainCasts) {
+    }
+
+    public String getMvId() {
         return mvId;
     }
 
-    public void setMvId(UUID mvId) {
+    public void setMvId(String mvId) {
         this.mvId = mvId;
     }
 
@@ -50,12 +48,12 @@ public class Movie {
         this.releaseDate = releaseDate;
     }
 
-    public String getGrenre() {
-        return grenre;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setGrenre(String grenre) {
-        this.grenre = grenre;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     public String getDuration() {
@@ -66,20 +64,23 @@ public class Movie {
         this.duration = duration;
     }
 
-    public Director getDirector() {
+    public String getDirector() {
         return director;
     }
 
-    public void setDirector(Director director) {
+    public void setDirector(String director) {
         this.director = director;
     }
 
-    public MainCast getMainCasts() {
+    public String getMainCasts() {
         return mainCasts;
     }
 
-    public void setMainCasts(MainCast mainCasts) {
+    public void setMainCasts(String mainCasts) {
         this.mainCasts = mainCasts;
     }
+
+
+
 }
 

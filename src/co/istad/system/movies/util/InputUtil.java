@@ -1,4 +1,4 @@
-package co.istad.system.movies;
+package co.istad.system.movies.util;
 
 import java.time.LocalTime;
 import java.time.Year;
