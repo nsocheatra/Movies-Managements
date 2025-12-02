@@ -36,10 +36,12 @@ public class HallServiceImpl implements HallService {
 
     @Override
     public boolean bookHall(Hall hall) {
+
         if (!hall.isBooked()) {
             hall.setBooked(true);
             return true;
         }
         return false;
+
     }
 }

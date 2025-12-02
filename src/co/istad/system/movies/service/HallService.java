@@ -5,9 +5,7 @@ import co.istad.system.movies.model.Movie;
 import java.util.List;
 
 public interface HallService {
-    // Returning a List<Movie> here is a simplification for the demo
     List<Hall> findAll();
-    void listHall();
-    public Hall getHall(String id);
-    public boolean bookHall(Hall hall);
+     Hall getHall(String id);
+     boolean bookHall(Hall hall);
 }

@@ -6,10 +6,13 @@ import java.util.List;
 
 public interface MovieService {
 
+    void addNew(Movie newMovie);
+
     void updateById(String id, Movie newMove);
+
     void deleteById(String id);
-    void deleteByTitle(String title);
-    void addMovie (Movie nmovie);
 
     List<Movie> findAll();
+
+    void deleteByTitle(String title);
 }
