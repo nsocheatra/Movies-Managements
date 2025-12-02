@@ -1,27 +1,38 @@
 package co.istad.system.movies.model;
 
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Movie {
     private String mvId;
     private String title;
-    private String releaseDate;
+    private LocalDate releaseDate;
     private String genre;
-    private String duration;
+    private LocalTime duration;
     private String director;
-    private String mainCasts;
+    private String mainCast;
 
-    public Movie(String mvId, String title, String releaseDate, String genre, String duration, String director, String mainCasts) {
+    public Movie (){
+
+    }
+    public Movie(String title, LocalDate releaseDate, String genre, LocalTime duration, String director, String mainCast) {
+        this.title = title;
+        this.releaseDate = releaseDate;
+        this.genre = genre;
+        this.duration = duration;
+        this.director = director;
+        this.mainCast = mainCast;
+    }
+
+    public Movie(String mvId,String title, LocalDate releaseDate, String genre, LocalTime duration, String director, String mainCast) {
         this.mvId = mvId;
         this.title = title;
         this.releaseDate = releaseDate;
         this.genre = genre;
         this.duration = duration;
         this.director = director;
-        this.mainCasts = mainCasts;
-    }
-
-    public Movie(String title, String releaseDate, String genre, String duration, String director, String mainCasts) {
+        this.mainCast = mainCast;
     }
 
     public String getMvId() {
@@ -40,11 +51,11 @@ public class Movie {
         this.title = title;
     }
 
-    public String getReleaseDate() {
+    public LocalDate getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(String releaseDate) {
+    public void setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
     }
 
@@ -56,11 +67,11 @@ public class Movie {
         this.genre = genre;
     }
 
-    public String getDuration() {
+    public LocalTime getDuration() {
         return duration;
     }
 
-    public void setDuration(String duration) {
+    public void setDuration(LocalTime duration) {
         this.duration = duration;
     }
 
@@ -72,15 +83,11 @@ public class Movie {
         this.director = director;
     }
 
-    public String getMainCasts() {
-        return mainCasts;
+    public String getMainCast() {
+        return mainCast;
     }
 
-    public void setMainCasts(String mainCasts) {
-        this.mainCasts = mainCasts;
+    public void setMainCast(String mainCast) {
+        this.mainCast = mainCast;
     }
-
-
-
 }
-

@@ -33,26 +33,34 @@ public class ViewUtil {
         print(table.render(), true);
     }
 
-    public static void printAppMenu() {
+    public static void printAppMenu(String title,String textLineOne, String textLineTwo) {
         Table table = new Table(1, BorderStyle.UNICODE_BOX_HEAVY_BORDER_WIDE);
         CellStyle cellStyle = new CellStyle(CellStyle.HorizontalAlign.center);
         table.setColumnWidth(0, 50, 80);
-        table.addCell(Color.BLUE + "Application Menu", cellStyle);
-        table.addCell(Color.GREEN + "(1)Display Movies     (2)Add Movies     (3)Booking Movies & Hall ", cellStyle);
-        table.addCell(Color.GREEN + "(4)Delete Movies"+Color.RED+"     (0)Exit", cellStyle);
+        table.addCell(Color.BLUE + title,cellStyle);
+      table.addCell(Color.GREEN + textLineOne, cellStyle);
+        table.addCell(Color.GREEN + textLineTwo+Color.RED+"(0)Exit", cellStyle);
+        print(table.render(), true);
+    }
+    public static void printOptionMenu(String title, String textLineOne){
+        Table table = new Table(1, BorderStyle.UNICODE_BOX_HEAVY_BORDER_WIDE);
+        CellStyle cellStyle = new CellStyle(CellStyle.HorizontalAlign.center);
+        table.setColumnWidth(0, 50, 80);
+        table.addCell(Color.BLUE + title,cellStyle);
+        table.addCell(Color.GREEN + textLineOne+Color.RED+"(0)Exit", cellStyle);
         print(table.render(), true);
     }
 
     public static void printMovieList(List<Movie> movieList) {
         Table table = new Table(7, BorderStyle.UNICODE_ROUND_BOX_WIDE);
-
-        table.addCell(Color.BLUE + "ID");
-        table.addCell(Color.BLUE + "Title");
-        table.addCell(Color.BLUE + "Release Date");
-        table.addCell(Color.BLUE + "Genre");
-        table.addCell(Color.BLUE + "Duration");
-        table.addCell(Color.BLUE + "Director");
-        table.addCell(Color.BLUE + "Cast");
+        CellStyle cellStyle = new CellStyle(CellStyle.HorizontalAlign.center);
+        table.addCell(Color.BLUE + "ID (UUID)",cellStyle);
+        table.addCell(Color.BLUE + "Title",cellStyle);
+        table.addCell(Color.BLUE + "Release Date",cellStyle);
+        table.addCell(Color.BLUE + "Genre",cellStyle);
+        table.addCell(Color.BLUE + "Duration",cellStyle);
+        table.addCell(Color.BLUE + "Director",cellStyle);
+        table.addCell(Color.BLUE + "Main Cast",cellStyle);
 
         for (Movie mv : movieList) {
             table.addCell(Color.GREEN + mv.getMvId());
@@ -61,7 +69,7 @@ public class ViewUtil {
             table.addCell(Color.GREEN + mv.getGenre());
             table.addCell(Color.GREEN + mv.getDuration());
             table.addCell(Color.GREEN + mv.getDirector());
-            table.addCell(Color.GREEN + mv.getMainCasts());
+            table.addCell(Color.GREEN + mv.getMainCast());
         }
         print(table.render(), true);
 
@@ -88,6 +96,7 @@ public class ViewUtil {
     public static void printActor() {
 
     }
+
 
     public class Color {
         public static final String RESET = "\u001B[0m";

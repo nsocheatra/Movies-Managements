@@ -1,5 +1,6 @@
 package co.istad.system.movies.util;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Year;
 import java.time.format.DateTimeFormatter;
@@ -25,17 +26,16 @@ public class InputUtil {
         } while (true);
     }
 
-    public static Year getYear(String label) {
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy");
+    public static LocalDate getDate(String label) {
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         do {
-            ViewUtil.print(label + " (yyyy): ", false);
-
+            ViewUtil.print(label + " (2022-05-05): ", false);
             try {
                 String input = scanner.nextLine();
-                return Year.parse(input, format);
+                return LocalDate.parse(input, format);
             } catch (DateTimeParseException e) {
-                ViewUtil.print(" Invalid year format! Please use yyyy.\n", true);
+                ViewUtil.print(" Invalid date format! Please use yyyy-MM-dd (2022-05-05).\n", true);
             }
         } while (true);
     }
