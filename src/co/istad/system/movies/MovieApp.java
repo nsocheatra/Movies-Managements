@@ -17,6 +17,7 @@ import java.time.LocalTime;
 public class MovieApp {
     private final MovieService movieService;
     private final HallService hallService;
+
     public MovieApp() {
         movieService = new MovieServiceImpl();
         hallService = new HallServiceImpl();
@@ -30,7 +31,7 @@ public class MovieApp {
     private void start() {
         ViewUtil.printAppName();
         do {
-            ViewUtil.printAppMenu("Application Menu","(1)Display Movies     (2)Add & Update Movies     (3)Booking Movie  ",
+            ViewUtil.printAppMenu("Application Menu", "(1)Display Movies     (2)Add & Update Movies     (3)Booking Movie  ",
                     "(4)Check Booking   (5)Delete Movie   ");
             int menuOption = InputUtil.getInteger("Enter menu option");
             switch (menuOption) {
@@ -53,7 +54,7 @@ public class MovieApp {
             String hId = InputUtil.getText("Enter hall ID");
             if (hId.equalsIgnoreCase("x")) {
                 ViewUtil.printMessage(Color.BLUE + "Exit to main menu.");
-                ViewUtil.printMessage(Color.YELLOW+"You has been quite the menu");
+                ViewUtil.printMessage(Color.YELLOW + "You has been quite the menu");
                 break;
             }
             Hall hall = hallService.getHall(hId);
@@ -63,7 +64,7 @@ public class MovieApp {
             }
             if (hallService.bookHall(hall)) {
                 ViewUtil.printMessage(Color.GREEN + "Booked successfully!");
-                ViewUtil.printMessage(Color.CYAN+"Thanks For Booked Our Team");
+                ViewUtil.printMessage(Color.CYAN + "Thanks For Booked Our Team");
                 break;
             } else {
                 ViewUtil.printMessage(Color.YELLOW + " Hall already booked! Try again or enter x to quit");
@@ -79,14 +80,15 @@ public class MovieApp {
         ViewUtil.printMovieList(movieService.findAll().reversed());
 
     }
-    private void displayBooking(){
+
+    private void displayBooking() {
         ViewUtil.printHall(hallService.findAll());
 
     }
 
-    private void addUpdate(){
+    private void addUpdate() {
         do {
-           ViewUtil.printOptionMenu("Add & Update Movie Menu","(1)Add New Movie    (2)Update By ID  (3)Check List     (4)Back Menu   ");
+            ViewUtil.printOptionMenu("Add & Update Movie Menu", "(1)Add New Movie    (2)Update By ID  (3)Check List     (4)Back Menu   ");
             int addUpdateMenu = InputUtil.getInteger("Enter menu option");
             switch (addUpdateMenu) {
                 case 1 -> addNew();
@@ -106,12 +108,13 @@ public class MovieApp {
         LocalTime duration = InputUtil.getTime("Enter Duration");
         String director = InputUtil.getText("Enter Director");
         String mainCast = InputUtil.getText("Enter Caster");
-        Movie newMovie = new Movie(title,releaseDate,genre,duration,director,mainCast);
+        Movie newMovie = new Movie(title, releaseDate, genre, duration, director, mainCast);
         movieService.addNew(newMovie);
         ViewUtil.printMessage("Add movies successfully!");
 
     }
-    private void updateById(){
+
+    private void updateById() {
         ViewUtil.printMessage("Update Movie by ID");
         String id = InputUtil.getText("Enter ID to Update");
         String title = InputUtil.getText("Enter Title Movie");
@@ -120,10 +123,11 @@ public class MovieApp {
         LocalTime duration = InputUtil.getTime("Enter Duration");
         String director = InputUtil.getText("Enter Name Director");
         String mainCast = InputUtil.getText("Enter Name  Cast");
-        Movie newMovie = new Movie(title,releaseDate,genre,duration,director,mainCast);
-        movieService.updateById(id,newMovie);
+        Movie newMovie = new Movie(title, releaseDate, genre, duration, director, mainCast);
+        movieService.updateById(id, newMovie);
     }
-//    private void updateByTitle(){
+
+    //    private void updateByTitle(){
 //        ViewUtil.printMessage("Update Movie by Title");
 //        String title = InputUtil.getText("Enter Title Movie");
 //        String titleNew = InputUtil.getText("Enter New Title Movie");
@@ -135,9 +139,9 @@ public class MovieApp {
 //        Movie newMovie = new Movie(title,releaseDate,genre,duration,director,mainCast);
 //        movieService.updateByTitle(title,newMovie);
 //    }
-    public void deleteMenu(){
+    public void deleteMenu() {
         do {
-            ViewUtil.printOptionMenu("Add & Update Movie Menu","(1)Delete By ID    (2)Delete By Title   (3)Check List  (4)Back Menu   ");
+            ViewUtil.printOptionMenu("Add & Update Movie Menu", "(1)Delete By ID    (2)Delete By Title   (3)Check List  (4)Back Menu   ");
             int addUpdateMenu = InputUtil.getInteger("Enter menu option");
             switch (addUpdateMenu) {
                 case 1 -> deleteById();
@@ -149,13 +153,14 @@ public class MovieApp {
         } while (true);
     }
 
-    public void deleteById(){
+    public void deleteById() {
         ViewUtil.printMessage("Delete Movie by ID");
         String id = InputUtil.getText("Enter ID to delete");
         movieService.deleteById(id);
         ViewUtil.printMessage("Movie deleted successfully!");
     }
-    public void deleteByTitle(){
+
+    public void deleteByTitle() {
         ViewUtil.printMessage("Delete Movie by ID");
         String title = InputUtil.getText("Enter ID to delete");
         movieService.deleteByTitle(title);
