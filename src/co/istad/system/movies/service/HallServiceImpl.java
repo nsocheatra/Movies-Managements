@@ -2,7 +2,9 @@ package co.istad.system.movies.service;
 
 import co.istad.system.movies.database.HallDatabase;
 import co.istad.system.movies.model.Hall;
+import co.istad.system.movies.model.Movie;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HallServiceImpl implements HallService {
@@ -17,13 +19,7 @@ public class HallServiceImpl implements HallService {
         return hallDatabase.getDataset();
     }
 
-    public void listHall() {
-        System.out.println("===== Room List =====");
-        hallDatabase.getDataset().forEach(r -> {
-            System.out.println(r.gethId() + " - " + r.gethName() +
-                    " | Booked: " + (r.isBooked() ? "YES" : "NO"));
-        });
-    }
+
 
     @Override
     public Hall getHall(String id) {
@@ -35,7 +31,7 @@ public class HallServiceImpl implements HallService {
     }
 
     @Override
-    public boolean bookHall(Hall hall) {
+    public boolean bookHall(Hall hall , Movie movie) {
 
         if (!hall.isBooked()) {
             hall.setBooked(true);

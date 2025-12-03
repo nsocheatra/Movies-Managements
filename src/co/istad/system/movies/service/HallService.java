@@ -7,5 +7,5 @@ import java.util.List;
 public interface HallService {
     List<Hall> findAll();
      Hall getHall(String id);
-     boolean bookHall(Hall hall);
+     boolean bookHall(Hall hall, Movie movie);
 }
