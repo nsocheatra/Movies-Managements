@@ -40,4 +40,11 @@ public class MovieServiceImpl implements MovieService {
         return movieDb.getDataset();
     }
 
+    @Override
+    public Movie getMovie(String mvId) {
+        return findAll().stream()
+                .filter(movie -> movie.getMvId().equalsIgnoreCase(mvId))
+                .findFirst()
+                .orElse(null);
+    }
 }
