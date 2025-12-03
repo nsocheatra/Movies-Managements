@@ -228,7 +228,7 @@ public class MovieDatabase {
         wicked.setTitle("Wicked: For Good");
         wicked.setReleaseDate(LocalDate.of(2025,11,21));
         wicked.setGenre("Musical");
-        wicked.setDuration(LocalTime.of(2,18));
+        wicked.setDuration(LocalTime.of(2,25));
         wicked.setDirector("Jon M. Chu");
         wicked.setMainCast("Ariana Grande");
 

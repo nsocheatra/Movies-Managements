@@ -2,6 +2,7 @@ package co.istad.system.movies.service;
 
 import co.istad.system.movies.database.HallDatabase;
 import co.istad.system.movies.model.Hall;
+import co.istad.system.movies.model.Movie;
 
 import java.util.List;
 
@@ -44,4 +45,7 @@ public class HallServiceImpl implements HallService {
         return false;
 
     }
+
+
+
 }
