@@ -141,7 +141,7 @@ public class MovieApp {
 //    }
     public void deleteMenu() {
         do {
-            ViewUtil.printOptionMenu("Add & Update Movie Menu", "(1)Delete By ID    (2)Delete By Title   (3)Check List  (4)Back Menu   ");
+            ViewUtil.printOptionMenu("Delete Movies", "(1)Delete By ID    (2)Delete By Title   (3)Check List  (4)Back Menu   ");
             int addUpdateMenu = InputUtil.getInteger("Enter menu option");
             switch (addUpdateMenu) {
                 case 1 -> deleteById();
