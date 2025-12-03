@@ -65,9 +65,9 @@ public class ViewUtil {
         for (Movie mv : movieList) {
             table.addCell(Color.GREEN + mv.getMvId());
             table.addCell(Color.GREEN + mv.getTitle());
-            table.addCell(Color.GREEN + mv.getReleaseDate());
+            table.addCell(Color.GREEN + mv.getReleaseDate(),cellStyle);
             table.addCell(Color.GREEN + mv.getGenre());
-            table.addCell(Color.GREEN + mv.getDuration());
+            table.addCell(Color.GREEN + mv.getDuration(),cellStyle);
             table.addCell(Color.GREEN + mv.getDirector());
             table.addCell(Color.GREEN + mv.getMainCast());
         }

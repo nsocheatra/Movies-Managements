@@ -156,8 +156,8 @@ public class MovieApp {
         ViewUtil.printMessage("Movie deleted successfully!");
     }
     public void deleteByTitle(){
-        ViewUtil.printMessage("Delete Movie by ID");
-        String title = InputUtil.getText("Enter ID to delete");
+        ViewUtil.printMessage("Delete Movie by Tiltle");
+        String title = InputUtil.getText("Enter Title to delete");
         movieService.deleteByTitle(title);
         ViewUtil.printMessage("Movie deleted successfully!");
     }

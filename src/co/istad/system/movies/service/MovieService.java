@@ -12,7 +12,8 @@ public interface MovieService {
 
     void deleteById(String id);
 
+    void deleteByTitle(String title);
+
     List<Movie> findAll();
 
-    void deleteByTitle(String title);
 }
