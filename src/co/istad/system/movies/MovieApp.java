@@ -66,7 +66,7 @@ public class MovieApp {
                 ViewUtil.printMessage(Color.CYAN+"Thanks For Booked Our Team");
                 break;
             } else {
-                ViewUtil.printMessage(Color.YELLOW + "Room already booked! Try again or enter x to quit");
+                ViewUtil.printMessage(Color.YELLOW + " Hall already booked! Try again or enter x to quit");
             }
 
         }
