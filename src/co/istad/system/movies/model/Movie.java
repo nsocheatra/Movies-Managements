@@ -13,6 +13,13 @@ public class Movie {
     private String director;
     private String mainCast;
 
+
+
+    public boolean isBookMovie(Hall hall) {
+        return false;
+    }
+
+
     public Movie (){
 
     }
@@ -90,4 +97,5 @@ public class Movie {
     public void setMainCast(String mainCast) {
         this.mainCast = mainCast;
     }
+
 }

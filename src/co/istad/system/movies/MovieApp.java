@@ -1,21 +1,23 @@
 package co.istad.system.movies;
 
+import co.istad.system.movies.model.Hall;
 import co.istad.system.movies.model.Movie;
-import co.istad.system.movies.service.HallService;
-import co.istad.system.movies.service.HallServiceImpl;
-import co.istad.system.movies.service.MovieService;
-import co.istad.system.movies.service.MovieServiceImpl;
+import co.istad.system.movies.model.ShowBooking;
+import co.istad.system.movies.service.*;
 import co.istad.system.movies.util.BookingUtil;
 import co.istad.system.movies.util.InputUtil;
 import co.istad.system.movies.util.ViewUtil;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 
 public class MovieApp {
     private final MovieService movieService;
     private final HallService hallService;
+    private final ShowBookingService showBookingService = new ShowBookingService();
+
 
     public MovieApp() {
         movieService = new MovieServiceImpl();
@@ -37,15 +39,21 @@ public class MovieApp {
                 case 1 -> displayAllMovie();
                 case 2 -> addUpdate();
                 case 3 -> viewBookings();
-                case 4 -> displayBooking();
+//                case 4 -> displayBooking();
+                case 4 -> ShowBooking();
                 case 5 -> deleteMenu();
                 case 0 -> System.exit(0);
             }
         } while (true);
     }
 
+
+
+
     private void viewBookings() {
+
         BookingUtil.handleBooking(hallService,movieService);
+
     }
 
 
@@ -54,10 +62,12 @@ public class MovieApp {
         ViewUtil.printMovieList(movieService.findAll().reversed());
     }
 
-    private void displayBooking() {
-        ViewUtil.printHall(hallService.findAll());
-
+    private void ShowBooking(){
+        List<ShowBooking> showBookings = ShowBookingService.findAllBooking();
+    ViewUtil.printChecking(showBookings);
     }
+
+
 
     private void addUpdate() {
         do {
@@ -112,6 +122,9 @@ public class MovieApp {
                 case 0 -> System.exit(0);
             }
         } while (true);
+    }
+    public static void displayBooking(){
+
     }
 
     public void deleteById() {

@@ -8,10 +8,9 @@ import co.istad.system.movies.service.MovieService;
 public class BookingUtil {
     public static void handleBooking(HallService hallService, MovieService movieService) {
         ViewUtil.printMessage(Color.BLUE + "MOVIE SELECTION");
-        ViewUtil.printMovieList(movieService.findAll().reversed());
+        ViewUtil.printBookList(movieService.findAll().reversed());
         ViewUtil.printMessageNoTable(Color.YELLOW + "Choose the movie you want to watch.");
         ViewUtil.printMessageNoTable(Color.RED + "(Enter x to quit)");
-
         Movie selectedMovie =null;
         while (selectedMovie == null) {
             String movieId = InputUtil.getText(Color.YELLOW+"Enter movie ID");
@@ -63,6 +62,10 @@ public class BookingUtil {
             }
         }
     }
+
+
+
+
     public class Color {
         public static final String RESET = "\u001B[0m";
         public static final String BLACK = "\u001B[30m";
