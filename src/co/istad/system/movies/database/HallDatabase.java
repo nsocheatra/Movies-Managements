@@ -16,6 +16,8 @@ public class HallDatabase {
         Hall pkaKolap = new Hall(UUID.randomUUID().toString(),"Pka Kolap");
         Hall pkaySomnang = new Hall(UUID.randomUUID().toString(),"Pkay Somnang");
         Hall pkaChan = new Hall(UUID.randomUUID().toString(),"Pka Chan");
+        Hall Central  = new Hall(UUID.randomUUID().toString(),"Central");
+
 
         dataset = new ArrayList<>();
         dataset.add(ponluePkay);
@@ -23,7 +25,7 @@ public class HallDatabase {
         dataset.add(pkaKolap);
         dataset.add(pkaySomnang);
         dataset.add(pkaChan);
-
+        dataset.add(Central);
     }
     public List<Hall> getDataset() {
         return dataset;

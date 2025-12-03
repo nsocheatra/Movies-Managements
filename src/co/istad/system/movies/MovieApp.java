@@ -31,7 +31,7 @@ public class MovieApp {
     private void start() {
         ViewUtil.printAppName();
         do {
-            ViewUtil.printAppMenu("Application Menu", "(1)Display Movies     (2)Add & Update Movies     (3)Booking Movie  ",
+            ViewUtil.printAppMenu("Application Menu", "(1)Display Movies     (2)Add & Update Movies     (3)Booking Halls & Movies  ",
                     "(4)Check Booking   (5)Delete Movie   ");
             int menuOption = InputUtil.getInteger("Enter menu option");
             switch (menuOption) {

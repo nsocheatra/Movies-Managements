@@ -20,7 +20,7 @@ public class MovieDatabase {
         blackBag.setGenre("Thriller");
         blackBag.setDuration(LocalTime.of(1,33));
         blackBag.setDirector("Steven Soderbergh");
-        blackBag.setMainCast("Cate Blanchett, Michael Fassbender, Marisa Abela");
+        blackBag.setMainCast("Cate Blanchett");
 
         Movie theAmateur = new Movie();
         theAmateur.setMvId(UUID.randomUUID().toString());
@@ -29,7 +29,7 @@ public class MovieDatabase {
         theAmateur.setGenre("Thriller");
         theAmateur.setDuration(LocalTime.of(2,2));
         theAmateur.setDirector("James Hawes");
-        theAmateur.setMainCast("Rami Malek, Rechel Brosnahan, Laurence Fishburne");
+        theAmateur.setMainCast("Rami Malek");
 
         Movie warfare = new Movie();
         warfare.setMvId(UUID.randomUUID().toString());
@@ -38,7 +38,7 @@ public class MovieDatabase {
         warfare.setGenre("War");
         warfare.setDuration(LocalTime.of(1,35));
         warfare.setDirector("Ray Mendoza");
-        warfare.setMainCast("D'Pharaoh Woon-A-Tai, Will Poulter, Cosmo Jarvis");
+        warfare.setMainCast("D'Pharaoh Woon-A-Tai");
 
         Movie finalDestinationBloodlines = new Movie();
         finalDestinationBloodlines.setMvId(UUID.randomUUID().toString());
@@ -47,7 +47,7 @@ public class MovieDatabase {
         finalDestinationBloodlines.setGenre("Horror");
         finalDestinationBloodlines.setDuration(LocalTime.of(1,50));
         finalDestinationBloodlines.setDirector("Adam B Stein");
-        finalDestinationBloodlines.setMainCast("Kaitlyn Santa Juana, Tony Todd, Brec Bassinger");
+        finalDestinationBloodlines.setMainCast("Kaitlyn Santa Juana");
 
         Movie karateKidLegends = new Movie();
         karateKidLegends.setMvId(UUID.randomUUID().toString());
@@ -56,7 +56,7 @@ public class MovieDatabase {
         karateKidLegends.setGenre("Martial Arts");
         karateKidLegends.setDuration(LocalTime.of(1,34));
         karateKidLegends.setDirector("Jonathan Entwistle");
-        karateKidLegends.setMainCast("Ralph Macchio, Jackie Chan, Ben Wang");
+        karateKidLegends.setMainCast("Ralph Macchio");
 
         Movie bringHerBack = new Movie();
         bringHerBack.setMvId(UUID.randomUUID().toString());
@@ -65,7 +65,7 @@ public class MovieDatabase {
         bringHerBack.setGenre("Thriller");
         bringHerBack.setDuration(LocalTime.of(1,44));
         bringHerBack.setDirector("Danny Philippou");
-        bringHerBack.setMainCast("Sally Hawkins, Billy Barratt, Sora Wong");
+        bringHerBack.setMainCast("Sally Hawkins");
 
         Movie headsOfState = new Movie();
         headsOfState.setMvId(UUID.randomUUID().toString());
@@ -74,7 +74,7 @@ public class MovieDatabase {
         headsOfState.setGenre("Comedy");
         headsOfState.setDuration(LocalTime.of(1,53));
         headsOfState.setDirector("Ilya Naishuller");
-        headsOfState.setMainCast("Idris Elba, John Cena, Priyanka Chopra Jonas");
+        headsOfState.setMainCast("Idris Elba");
 
         Movie superman = new Movie();
         superman.setMvId(UUID.randomUUID().toString());
@@ -83,7 +83,7 @@ public class MovieDatabase {
         superman.setGenre("Science Fiction");
         superman.setDuration(LocalTime.of(2,9));
         superman.setDirector("James Gunn");
-        superman.setMainCast("David Corenswet, Rachel Brosnahan, Nicholas Hoult");
+        superman.setMainCast("David Corenswet");
 
         Movie eddington = new Movie();
         eddington.setMvId(UUID.randomUUID().toString());
@@ -101,7 +101,7 @@ public class MovieDatabase {
         happyGilmore2.setGenre("Comedy");
         happyGilmore2.setDuration(LocalTime.of(1,54));
         happyGilmore2.setDirector("Kyle Newacheck");
-        happyGilmore2.setMainCast("Adam Sandler, Julie Bowen, Christopher McDonald");
+        happyGilmore2.setMainCast("Adam Sandler");
 
 
         Movie theNakedGun = new Movie();
@@ -111,7 +111,7 @@ public class MovieDatabase {
         theNakedGun.setGenre("Comedy");
         theNakedGun.setDuration(LocalTime.of(1,25));
         theNakedGun.setDirector("Akiva");
-        theNakedGun.setMainCast("Liam Neeson, Pamela Anderson, Paul Walter Hauser");
+        theNakedGun.setMainCast("Liam Neeson");
 
         Movie nobody2 = new Movie();
         nobody2.setMvId(UUID.randomUUID().toString());
@@ -120,7 +120,7 @@ public class MovieDatabase {
         nobody2.setGenre("Comedy");
         nobody2.setDuration(LocalTime.of(1,29));
         nobody2.setDirector("Timo Tjahjanto");
-        nobody2.setMainCast("Bob Odenkirk, Connie Nielsen, John Ortiz");
+        nobody2.setMainCast("Bob Odenkirk");
 
         Movie eden = new Movie();
         eden.setMvId(UUID.randomUUID().toString());
@@ -129,7 +129,7 @@ public class MovieDatabase {
         eden.setGenre("Thriller");
         eden.setDuration(LocalTime.of(2,9));
         eden.setDirector("Ron Howard");
-        eden.setMainCast("Jude Law, Ana de Armas, Vanessa Kirby");
+        eden.setMainCast("Jude Law");
 
         Movie theThursdayMurderClub = new Movie();
         theThursdayMurderClub.setMvId(UUID.randomUUID().toString());
@@ -138,7 +138,7 @@ public class MovieDatabase {
         theThursdayMurderClub.setGenre("Mystery");
         theThursdayMurderClub.setDuration(LocalTime.of(1,58));
         theThursdayMurderClub.setDirector("Chris Columbus");
-        theThursdayMurderClub.setMainCast("Helen Mirren, Pierce Brosnan, Ben Kingsley");
+        theThursdayMurderClub.setMainCast("Helen Mirren");
 
         Movie theRoses = new Movie();
         theRoses.setMvId(UUID.randomUUID().toString());
@@ -147,7 +147,7 @@ public class MovieDatabase {
         theRoses.setGenre("Dark Comedy");
         theRoses.setDuration(LocalTime.of(1,45));
         theRoses.setDirector("Jay Roach");
-        theRoses.setMainCast("Benedict Cumberbatch, Olivia Colman, Andy Samberg");
+        theRoses.setMainCast("Benedict Cumberbatch");
 
         Movie theConjuringLastRites = new Movie();
         theConjuringLastRites.setMvId(UUID.randomUUID().toString());
@@ -156,7 +156,7 @@ public class MovieDatabase {
         theConjuringLastRites.setGenre("Thriller");
         theConjuringLastRites.setDuration(LocalTime.of(2,15));
         theConjuringLastRites.setDirector("Michael Chaves");
-        theConjuringLastRites.setMainCast("Patrick Wilson, Vera Farmiga, Mia Tomlinson");
+        theConjuringLastRites.setMainCast("Patrick Wilson");
 
         Movie demonSlayer = new Movie();
         demonSlayer.setMvId(UUID.randomUUID().toString());
@@ -174,7 +174,7 @@ public class MovieDatabase {
         theLongWalk.setGenre("Thriller");
         theLongWalk.setDuration(LocalTime.of(1,48));
         theLongWalk.setDirector("Francis Lawrence");
-        theLongWalk.setMainCast("Cooper Hoffman, David Jonsson, Garrett Wareing");
+        theLongWalk.setMainCast("Cooper Hoffman");
 
 
 
@@ -185,7 +185,7 @@ public class MovieDatabase {
         blackPhone2.setGenre("Thriller");
         blackPhone2.setDuration(LocalTime.of(1,54));
         blackPhone2.setDirector("Scott Derrickson");
-        blackPhone2.setMainCast("Ethan Hawke, Mason Thames, Madekeline McGraw");
+        blackPhone2.setMainCast("Ethan Hawke");
 
         Movie frankenstein = new Movie();
         frankenstein.setMvId(UUID.randomUUID().toString());
@@ -194,7 +194,7 @@ public class MovieDatabase {
         frankenstein.setGenre("Horror");
         frankenstein.setDuration(LocalTime.of(2,29));
         frankenstein.setDirector("Guillermo del Toro");
-        frankenstein.setMainCast("Oscar Isaac, Jacob Elordi, Mia Goth");
+        frankenstein.setMainCast("Oscar Isaac");
 
         Movie trainDreams = new Movie();
         trainDreams.setMvId(UUID.randomUUID().toString());
@@ -203,7 +203,7 @@ public class MovieDatabase {
         trainDreams.setGenre("Drama");
         trainDreams.setDuration(LocalTime.of(1,42));
         trainDreams.setDirector("Clint Bentley");
-        trainDreams.setMainCast("Joel Edgerton, Clifton Collins Jr, Felicity Jones");
+        trainDreams.setMainCast("Joel Edgerton");
 
         Movie predatorBadlands = new Movie();
         predatorBadlands.setMvId(UUID.randomUUID().toString());
@@ -212,7 +212,7 @@ public class MovieDatabase {
         predatorBadlands.setGenre("Science Fiction");
         predatorBadlands.setDuration(LocalTime.of(1,47));
         predatorBadlands.setDirector("Dan Trachtenberg");
-        predatorBadlands.setMainCast("Elle Fanning, Dimitrius Schuster Koloamatangi");
+        predatorBadlands.setMainCast("Elle Fanning");
 
         Movie nuremberg = new Movie();
         nuremberg.setMvId(UUID.randomUUID().toString());
@@ -221,7 +221,7 @@ public class MovieDatabase {
         nuremberg.setGenre("Historical Drama");
         nuremberg.setDuration(LocalTime.of(2,28));
         nuremberg.setDirector("James Vanderbilt");
-        nuremberg.setMainCast("Russell Crowe, Rami Malek, Leo Woodall");
+        nuremberg.setMainCast("Russell Crowe");
 
         Movie wicked = new Movie();
         wicked.setMvId(UUID.randomUUID().toString());
@@ -239,7 +239,7 @@ public class MovieDatabase {
         theFamilyPlan2.setGenre("Comedy");
         theFamilyPlan2.setDuration(LocalTime.of(1,46));
         theFamilyPlan2.setDirector("Simon Cellan Jones");
-        theFamilyPlan2.setMainCast("Mark Wahlberg, Michelle Monaghan, Zow Colletti");
+        theFamilyPlan2.setMainCast("Mark Wahlberg");
 
         Movie sisuRoadToRevenge = new Movie();
         sisuRoadToRevenge.setMvId(UUID.randomUUID().toString());
@@ -248,7 +248,7 @@ public class MovieDatabase {
         sisuRoadToRevenge.setGenre("Action");
         sisuRoadToRevenge.setDuration(LocalTime.of(1,29));
         sisuRoadToRevenge.setDirector("Jalmari Helander");
-        sisuRoadToRevenge.setMainCast("Jorma Tommila, Stephen Lang, Richard Brake");
+        sisuRoadToRevenge.setMainCast("Jorma Tommila");
 
         Movie theGreatEscaper = new Movie();
         theGreatEscaper.setMvId(UUID.randomUUID().toString());
@@ -257,7 +257,7 @@ public class MovieDatabase {
         theGreatEscaper.setGenre("Drama");
         theGreatEscaper.setDuration(LocalTime.of(1,36));
         theGreatEscaper.setDirector("Oliver Parker");
-        theGreatEscaper.setMainCast("Michael Caine, Glenda Jackson, Danielle Vitalis");
+        theGreatEscaper.setMainCast("Michael Caine");
 
 
         dataset=new ArrayList<>();
