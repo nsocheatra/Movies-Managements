@@ -11,6 +11,7 @@ import co.istad.system.movies.util.ViewUtil;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.UUID;
 
 
 public class MovieApp {
@@ -62,8 +63,7 @@ public class MovieApp {
         ViewUtil.printMovieList(movieService.findAll().reversed());
     }
 
-    private void ShowBooking(){
-        List<ShowBooking> showBookings = ShowBookingService.findAllBooking();
+    private void ShowBooking(){List<ShowBooking> showBookings = ShowBookingService.findAllBooking();
     ViewUtil.printChecking(showBookings);
     }
 
@@ -129,15 +129,19 @@ public class MovieApp {
 
     public void deleteById() {
         ViewUtil.printMessage("Delete Movie by ID");
-        String id = InputUtil.getText("Enter ID to delete");
-        movieService.deleteById(id);
+        String id = InputUtil.getId("Enter ID to delete");
+        movieService.deleteById(UUID.fromString(id).toString());
         ViewUtil.printMessage("Movie deleted successfully!");
     }
 
     public void deleteByTitle() {
         ViewUtil.printMessage("Delete Movie by Title");
-        String title = InputUtil.getText("Enter Title to delete");
-        movieService.deleteByTitle(title);
+        if (movieService != null){
+            String title = InputUtil.getTitle("Enter Title to delete");
+            movieService.deleteByTitle(title);
+        }
+
+
         ViewUtil.printMessage("Movie deleted successfully!");
     }
 

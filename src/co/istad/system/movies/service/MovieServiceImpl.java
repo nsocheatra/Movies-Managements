@@ -2,7 +2,10 @@ package co.istad.system.movies.service;
 
 import co.istad.system.movies.model.Movie;
 import co.istad.system.movies.database.MovieDatabase;
+import co.istad.system.movies.util.ViewUtil;
+
 import java.util.List;
+import java.util.UUID;
 
 public class MovieServiceImpl implements MovieService {
     private final MovieDatabase movieDb;
@@ -21,11 +24,14 @@ public class MovieServiceImpl implements MovieService {
     public void updateById(String id, Movie newMove) {
         movieDb.updateById(id, newMove);
 
+
+
     }
 
     @Override
-    public void deleteById(String id) {
+    public void deleteById(String id){
         movieDb.deleteById(id);
+
 
     }
 

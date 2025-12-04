@@ -9,8 +9,7 @@ public class BookingUtil {
     public static void handleBooking(HallService hallService, MovieService movieService) {
         ViewUtil.printMessage(Color.BLUE + "MOVIE SELECTION");
         ViewUtil.printBookList(movieService.findAll().reversed());
-        ViewUtil.printMessageNoTable(Color.YELLOW + "Choose the movie you want to watch.");
-        ViewUtil.printMessageNoTable(Color.RED + "(Enter x to quit)");
+        ViewUtil.printMessage(Color.RED + "Enter x to back Menu");
         Movie selectedMovie =null;
         while (selectedMovie == null) {
             String movieId = InputUtil.getText(Color.YELLOW+"Enter movie ID");
@@ -47,7 +46,7 @@ public class BookingUtil {
 
             Hall hall = hallService.getHall(hId);
             if (hall == null) {
-                ViewUtil.printMessageNoTable(Color.RED + "\nInvalid hall ID, try again or enter x to quit"+Color.RESET);
+                ViewUtil.printMessageNoTable(Color.RED + "\nInvalid hall ID, try again or enter exit to quit"+Color.RESET);
                 continue;
             }
 

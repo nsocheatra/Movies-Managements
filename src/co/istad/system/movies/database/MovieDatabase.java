@@ -1,6 +1,9 @@
 package co.istad.system.movies.database;
 
+import co.istad.system.movies.model.Hall;
 import co.istad.system.movies.model.Movie;
+import co.istad.system.movies.util.BookingUtil;
+import co.istad.system.movies.util.ViewUtil;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -297,12 +300,13 @@ public class MovieDatabase {
     public void insert(Movie newMovie) {
         newMovie.setMvId(UUID.randomUUID().toString());
         dataset.add(newMovie);
+
     }
     public void updateById(String id, Movie newMovie) {
         dataset = dataset
                 .stream()
                 .peek(movie -> {
-                    if (movie.getMvId().equals(id)) {
+                    if (movie !=null && movie.getMvId().trim().equals(id)) {
                         movie.setTitle(newMovie.getTitle());
                         movie.setReleaseDate(newMovie.getReleaseDate());
                         movie.setGenre(newMovie.getGenre());
@@ -311,7 +315,9 @@ public class MovieDatabase {
                         movie.setMainCast(newMovie.getMainCast());
                     }
                 })
+
                 .collect(Collectors.toList());
+
     }
 
     public void deleteById(String id) {
@@ -319,7 +325,7 @@ public class MovieDatabase {
     }
 
     public void deleteByTitle(String title){
-        dataset.removeIf(movie -> movie.getTitle().equals(title));
+        dataset.removeIf(movie -> movie.getMvId().equals(title));
     }
 
 

@@ -5,7 +5,9 @@ import java.time.LocalTime;
 import java.time.Year;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.IllegalFormatException;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class InputUtil {
     private static final Scanner scanner = new Scanner(System.in);
@@ -15,7 +17,29 @@ public class InputUtil {
             ViewUtil.print(label + " : ", false);
             String input = scanner.nextLine().trim();
             if (input.isEmpty()) {
-                ViewUtil.print(Color.RED+"Invalid Please Try Again\n", false);
+                ViewUtil.print(Color.RED+"Invalid Please Try Again\n"+Color.RESET, false);
+                continue;
+            }
+            return input;
+        }while (true);
+    }
+    public static String  getId(String label) {
+        do {
+            ViewUtil.print(label + " : ", false);
+            String input = scanner.nextLine().trim();
+            if (input.isEmpty()) {
+                ViewUtil.print(Color.RED+"Invalid Please Try Again\n"+Color.RESET, false);
+                continue;
+            }
+            return input;
+        }while (true);
+    }
+    public static String getTitle(String label) {
+        do {
+            ViewUtil.print(label + " : ", false);
+            String input = scanner.nextLine().trim();
+            if (input.isEmpty()) {
+                ViewUtil.print(Color.RED+"Invalid Please Try Again\n"+Color.RESET, false);
                 continue;
             }
             return input;
