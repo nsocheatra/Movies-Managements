@@ -29,6 +29,7 @@ public class MovieApp {
         system.start();
     }
 
+
     private void start() {
         ViewUtil.printAppName();
         do {
@@ -108,6 +109,7 @@ public class MovieApp {
         String mainCast = InputUtil.getText("Enter Name  Cast");
         Movie newMovie = new Movie(title, releaseDate, genre, duration, director, mainCast);
         movieService.updateById(id, newMovie);
+        ViewUtil.printMessage("Updated movies successfully!");
     }
 
     public void deleteMenu() {
