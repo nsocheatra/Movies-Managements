@@ -110,7 +110,7 @@ public class MovieApp {
         String mainCast = InputUtil.getText("Enter Caster");
         Movie newMovie = new Movie(title, releaseDate, genre, duration, director, mainCast);
         movieService.addNew(newMovie);
-        ViewUtil.printMessage("Update movies successfully!");
+        ViewUtil.printMessage("Add movies successfully!");
 
     }
 
