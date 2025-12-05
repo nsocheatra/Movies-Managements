@@ -88,19 +88,14 @@ public class ViewUtil {
             ViewUtil.printMessageNoTable(Color.YELLOW+ "\nPage "+(currentPage+1) +" of " + totalPages);
             ViewUtil.printMessageNoTable("Showing " +startIndex +"-"+(endIndex -1) + " of " + movieList.size()+ "movies");
 
-            String choice = InputUtil.getText(Color.YELLOW+"[B]ack   |  [N]ext   |  [P]revious   |  [E]xit"+Color.RESET).trim().toLowerCase();
+            String choice = InputUtil.getText(Color.YELLOW+"[B]ack   |  [N]ext   |  [P]revious"+Color.RESET).trim().toLowerCase();
              if (choice.equals("n") && currentPage < totalPages - 1)
             {
                 currentPage++;
             } else if (choice.equals("p") && currentPage > 0) {
                 currentPage--;
-
              }    else if (choice.equals("b")) {
                  break;
-            }    else if (choice.equals("e")) {
-                 ViewUtil.printMessage("Thanks for using");
-                    System.exit(0);
-
             } else {
                 ViewUtil.printMessageNoTable(Color.RED+"Invalid option or no more pages in that direction!"+Color.RESET);
             }
@@ -140,7 +135,7 @@ public class ViewUtil {
             ViewUtil.printMessageNoTable(Color.YELLOW+ "\nPage "+(currentPage+1) +" of " + totalPages);
             ViewUtil.printMessageNoTable("Showing " +startIndex +"-"+(endIndex -1) + " of " + movieList.size()+ "movies");
 
-            String choice = InputUtil.getText(Color.YELLOW+"[B]ooking   |  [N]ext   |  [P]revious  |  [Q]uit   |  [E]xit"+Color.RESET).trim().toLowerCase();
+            String choice = InputUtil.getText(Color.YELLOW+"[B]ooking   |  [N]ext   |  [P]revious  |  [Q]uit"+Color.RESET).trim().toLowerCase();
             if (choice.equals("b")){
                 break;
             }
@@ -151,8 +146,6 @@ public class ViewUtil {
                 currentPage--;
             }    else if (choice.equals("q")) {
                 return;
-            }    else if (choice.equals("e")) {
-                System.exit(0);
             } else {
                 ViewUtil.printMessageNoTable(Color.RED+"Invalid option or no more pages in that direction!"+Color.RESET);
             }
