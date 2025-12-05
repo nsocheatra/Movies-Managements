@@ -302,22 +302,33 @@ public class MovieDatabase {
         dataset.add(newMovie);
 
     }
+
     public void updateById(String id, Movie newMovie) {
         dataset = dataset
                 .stream()
                 .peek(movie -> {
-                    if (movie !=null && movie.getMvId().trim().equals(id)) {
-                        movie.setTitle(newMovie.getTitle());
-                        movie.setReleaseDate(newMovie.getReleaseDate());
-                        movie.setGenre(newMovie.getGenre());
-                        movie.setDuration(newMovie.getDuration());
-                        movie.setDirector(newMovie.getDirector());
-                        movie.setMainCast(newMovie.getMainCast());
+                    if (movie != null && movie.getMvId().trim().equals(id)) {
+                        if (newMovie.getTitle() != null && !newMovie.getTitle().isEmpty()) {
+                            movie.setTitle(newMovie.getTitle());
+                        }
+                        if (newMovie.getReleaseDate() != null && !newMovie.getReleaseDate().equals("")) {
+                            movie.setReleaseDate(newMovie.getReleaseDate());
+                        }
+                        if (newMovie.getGenre() != null && !newMovie.getGenre().isEmpty()) {
+                            movie.setGenre(newMovie.getGenre());
+                        }
+                        if (newMovie.getDuration() != null && !newMovie.getDuration().equals("")) {
+                            movie.setDuration(newMovie.getDuration());
+                        }
+                        if (newMovie.getDirector() != null && !newMovie.getDirector().isEmpty()) {
+                            movie.setDirector(newMovie.getDirector());
+                        }
+                        if (newMovie.getMainCast() != null && !newMovie.getMainCast().isEmpty()) {
+                            movie.setMainCast(newMovie.getMainCast());
+                        }
                     }
                 })
-
                 .collect(Collectors.toList());
-
     }
 
     public void deleteById(String id) {
@@ -327,25 +338,5 @@ public class MovieDatabase {
     public void deleteByTitle(String title){
         dataset.removeIf(movie -> movie.getMvId().equals(title));
     }
-
-
-
-//    public void updateByTitle(String title, Movie newMovie) {
-//        dataset = dataset
-//                .stream()
-//                .peek(movie -> {
-//                    if (movie.getTitle().equals(title)) {
-//                        movie.setTitle(newMovie.getTitle());
-//                        movie.setReleaseDate(newMovie.getReleaseDate());
-//                        movie.setGenre(newMovie.getGenre());
-//                        movie.setDuration(newMovie.getDuration());
-//                        movie.setDirector(newMovie.getDirector());
-//                        movie.setMainCasts(newMovie.getMainCasts());
-//                    }
-//                })
-//                .collect(Collectors.toList());
-//    }
-
-
 
 }
