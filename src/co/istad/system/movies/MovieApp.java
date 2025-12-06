@@ -17,7 +17,7 @@ import java.util.UUID;
 public class MovieApp {
     private final MovieService movieService;
     private final HallService hallService;
-
+    private final ShowBookingService showBookingService = new ShowBookingService();
 
 
     public MovieApp() {
@@ -40,6 +40,7 @@ public class MovieApp {
                 case 1 -> displayAllMovie();
                 case 2 -> addUpdate();
                 case 3 -> viewBookings();
+//                case 4 -> displayBooking();
                 case 4 -> ShowBooking();
                 case 5 -> deleteMenu();
                 case 0 -> System.exit(0);
@@ -98,33 +99,13 @@ public class MovieApp {
 
     private void updateById() {
         ViewUtil.printMessage("Update Movie by ID");
-        ViewUtil.printMovieList(movieService.findAll().reversed());
-        String id = InputUtil.getText(InputUtil.Color.RED+"(X | x) for cancel update" +InputUtil.Color.CYAN+"\nEnter Id to update"+InputUtil.Color.RESET);
-        if (id.equalsIgnoreCase("x")) {
-            ViewUtil.printMessage(InputUtil.Color.BLUE+"Update cancelled.");
-            return;
-        }
-        Movie oldMovies = movieService.findAll()
-                .stream()
-                .filter(movie -> movie != null && movie.getMvId().trim().equals(id))
-                .findFirst()
-                .orElse(null);
-        if (oldMovies == null) {
-            System.out.println("Movie with ID " + id + " not found!");
-            return;
-        }
-        String title = InputUtil.getTextCanSkip("Enter Title Movie");
-        LocalDate releaseDate = InputUtil.getDateCanSkip("Enter Release Date");
-        String genre = InputUtil.getTextCanSkip("Enter Genre Movie");
-        LocalTime duration = InputUtil.getTimeCanSkip("Enter Duration");
-        String director = InputUtil.getTextCanSkip("Enter Name Director");
-        String mainCast = InputUtil.getTextCanSkip("Enter Name  Cast");
-        if (title == null || title.isEmpty()) title = oldMovies.getTitle();
-        if (releaseDate == null) releaseDate = oldMovies.getReleaseDate();
-        if (genre == null || genre.isEmpty()) genre = oldMovies.getGenre();
-        if (duration == null) duration = oldMovies.getDuration();
-        if (director == null || director.isEmpty()) director = oldMovies.getDirector();
-        if (mainCast == null || mainCast.isEmpty()) mainCast = oldMovies.getMainCast();
+        String id = InputUtil.getText("Enter ID to Update");
+        String title = InputUtil.getText("Enter Title Movie");
+        LocalDate releaseDate = InputUtil.getDate("Enter Release Date");
+        String genre = InputUtil.getText("Enter Genre Movie");
+        LocalTime duration = InputUtil.getTime("Enter Duration");
+        String director = InputUtil.getText("Enter Name Director");
+        String mainCast = InputUtil.getText("Enter Name  Cast");
         Movie newMovie = new Movie(title, releaseDate, genre, duration, director, mainCast);
         movieService.updateById(id, newMovie);
     }

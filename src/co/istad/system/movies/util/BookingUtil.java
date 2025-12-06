@@ -15,9 +15,12 @@ public class BookingUtil {
             String movieId = InputUtil.getText(Color.YELLOW+"Enter movie ID");
             if (movieId.equalsIgnoreCase("x")) {
                 ViewUtil.printMessageNoTable(Color.RED + "Exit to main menu.");
+
                 ViewUtil.printMessageNoTable(Color.RED + "\nYou have quit the menu"+Color.RESET);
+
                 return;
             }
+
             selectedMovie = movieService.getMovie(movieId);
             if (selectedMovie == null) {
                 ViewUtil.printMessage(Color.RED + "Invalid movie ID, try again or enter x to quit");
@@ -37,6 +40,7 @@ public class BookingUtil {
                 ViewUtil.printMessageNoTable(Color.RED + "Exit to main menu.");
 
                 ViewUtil.printMessageNoTable(Color.RED + "\nYou have quit the menu"+Color.RESET);
+
                 break;
             }
 
@@ -57,6 +61,9 @@ public class BookingUtil {
             }
         }
     }
+
+
+
 
     public class Color {
         public static final String RESET = "\u001B[0m";

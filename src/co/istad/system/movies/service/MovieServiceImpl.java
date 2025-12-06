@@ -23,6 +23,9 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public void updateById(String id, Movie newMove) {
         movieDb.updateById(id, newMove);
+
+
+
     }
 
     @Override
