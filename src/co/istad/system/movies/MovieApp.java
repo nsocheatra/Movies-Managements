@@ -1,6 +1,5 @@
 package co.istad.system.movies;
 
-import co.istad.system.movies.model.Hall;
 import co.istad.system.movies.model.Movie;
 import co.istad.system.movies.model.ShowBooking;
 import co.istad.system.movies.service.*;
@@ -11,7 +10,6 @@ import co.istad.system.movies.util.ViewUtil;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
-import java.util.UUID;
 
 
 public class MovieApp {
@@ -99,34 +97,37 @@ public class MovieApp {
     private void updateById() {
         ViewUtil.printMessage("Update Movie by ID");
         ViewUtil.printMovieList(movieService.findAll().reversed());
-        String id = InputUtil.getText(InputUtil.Color.RED+"(X | x) for cancel update" +InputUtil.Color.CYAN+"\nEnter Id to update"+InputUtil.Color.RESET);
-        if (id.equalsIgnoreCase("x")) {
-            ViewUtil.printMessage(InputUtil.Color.BLUE+"Update cancelled.");
-            return;
+        while (true){
+            String id = InputUtil.getText(InputUtil.Color.RED+"(X | x) for cancel update" +InputUtil.Color.CYAN+"\nEnter Id to update"+InputUtil.Color.RESET);
+            if (id.equalsIgnoreCase("x")) {
+                ViewUtil.printMessage(InputUtil.Color.BLUE+"Update cancelled.");
+                return;
+            }
+            Movie oldMovies = movieService.findAll()
+                    .stream()
+                    .filter(movie -> movie != null && movie.getMvId().trim().equals(id))
+                    .findFirst()
+                    .orElse(null);
+            if (oldMovies == null) {
+                System.out.println("Movie with ID " + id + " not found!");
+                continue;
+            }
+            String title = InputUtil.getTextCanSkip("Enter Title Movie");
+            LocalDate releaseDate = InputUtil.getDateCanSkip("Enter Release Date");
+            String genre = InputUtil.getTextCanSkip("Enter Genre Movie");
+            LocalTime duration = InputUtil.getTimeCanSkip("Enter Duration");
+            String director = InputUtil.getTextCanSkip("Enter Name Director");
+            String mainCast = InputUtil.getTextCanSkip("Enter Name  Cast");
+            if (title == null || title.isEmpty()) title = oldMovies.getTitle();
+            if (releaseDate == null) releaseDate = oldMovies.getReleaseDate();
+            if (genre == null || genre.isEmpty()) genre = oldMovies.getGenre();
+            if (duration == null) duration = oldMovies.getDuration();
+            if (director == null || director.isEmpty()) director = oldMovies.getDirector();
+            if (mainCast == null || mainCast.isEmpty()) mainCast = oldMovies.getMainCast();
+            Movie newMovie = new Movie(title, releaseDate, genre, duration, director, mainCast);
+            movieService.updateById(id, newMovie);
+            break;
         }
-        Movie oldMovies = movieService.findAll()
-                .stream()
-                .filter(movie -> movie != null && movie.getMvId().trim().equals(id))
-                .findFirst()
-                .orElse(null);
-        if (oldMovies == null) {
-            System.out.println("Movie with ID " + id + " not found!");
-            return;
-        }
-        String title = InputUtil.getTextCanSkip("Enter Title Movie");
-        LocalDate releaseDate = InputUtil.getDateCanSkip("Enter Release Date");
-        String genre = InputUtil.getTextCanSkip("Enter Genre Movie");
-        LocalTime duration = InputUtil.getTimeCanSkip("Enter Duration");
-        String director = InputUtil.getTextCanSkip("Enter Name Director");
-        String mainCast = InputUtil.getTextCanSkip("Enter Name  Cast");
-        if (title == null || title.isEmpty()) title = oldMovies.getTitle();
-        if (releaseDate == null) releaseDate = oldMovies.getReleaseDate();
-        if (genre == null || genre.isEmpty()) genre = oldMovies.getGenre();
-        if (duration == null) duration = oldMovies.getDuration();
-        if (director == null || director.isEmpty()) director = oldMovies.getDirector();
-        if (mainCast == null || mainCast.isEmpty()) mainCast = oldMovies.getMainCast();
-        Movie newMovie = new Movie(title, releaseDate, genre, duration, director, mainCast);
-        movieService.updateById(id, newMovie);
     }
 
     public void deleteMenu() {
@@ -142,26 +143,79 @@ public class MovieApp {
             }
         } while (true);
     }
-    public static void displayBooking(){
 
-    }
 
     public void deleteById() {
         ViewUtil.printMessage("Delete Movie by ID");
-        String id = InputUtil.getId("Enter ID to delete");
-        movieService.deleteById(UUID.fromString(id).toString());
-        ViewUtil.printMessage("Movie deleted successfully!");
+        ViewUtil.printMovieList(movieService.findAll().reversed());
+
+        while (true){
+            String id = InputUtil.getId(InputUtil.Color.RED+"(X | x) for cancel delete" +InputUtil.Color.CYAN+"\nEnter ID to Delete"+InputUtil.Color.RESET);
+            if (id.equalsIgnoreCase("x")) {
+                ViewUtil.printMessage(InputUtil.Color.BLUE+"Delete by ID has cancelled.");
+                return;
+            }
+            Movie oldMovies = movieService.findAll()
+                    .stream()
+                    .filter(movie -> movie != null && movie.getMvId().trim().trim().equals(id))
+                    .findFirst()
+                    .orElse(null);
+            if (oldMovies == null) {
+                System.out.println("Movie with Title  not found!");
+                System.out.println("Please Again!!!");
+                continue;
+            }
+            String confirm = InputUtil.getText(
+                    InputUtil.Color.YELLOW + "Are you sure you want to delete this movie \"" + oldMovies.getTitle()
+                            + "\" ? (Y/N): " + InputUtil.Color.RESET
+            );
+            if (!confirm.equalsIgnoreCase("y")){
+                ViewUtil.printMessage(InputUtil.Color.BLUE + "Delete cancelled");
+            }
+
+            movieService.deleteByTitle(id);
+            ViewUtil.printMessage(InputUtil.Color.PURPLE+"Movie deleted successfully!");
+            break;
+
+        }
+
+
+
     }
 
     public void deleteByTitle() {
         ViewUtil.printMessage("Delete Movie by Title");
-        if (movieService != null){
-            String title = InputUtil.getTitle("Enter Title to delete");
+        ViewUtil.printMovieList(movieService.findAll().reversed());
+
+        while (true){
+            String title = InputUtil.getTitle(InputUtil.Color.RED+"(X | x) for cancel delete" +InputUtil.Color.CYAN+"\nEnter Title to Delete"+InputUtil.Color.RESET);
+            if (title.equalsIgnoreCase("x")) {
+                ViewUtil.printMessage(InputUtil.Color.BLUE+"Delete by Title has cancelled.");
+                return;
+            }
+            Movie oldMovies = movieService.findAll()
+                    .stream()
+                    .filter(movie -> movie != null && movie.getTitle().trim().trim().equals(title))
+                    .findFirst()
+                    .orElse(null);
+            if (oldMovies == null) {
+                System.out.println("Movie with Title  not found!");
+                System.out.println("Please Again!!!");
+                continue;
+            }
+            String confirm = InputUtil.getText(
+                    InputUtil.Color.YELLOW + "Are you sure you want to delete this movie \"" + oldMovies.getTitle()
+                    + "\" ? (Y/N): " + InputUtil.Color.RESET
+            );
+            if (!confirm.equalsIgnoreCase("y")){
+                ViewUtil.printMessage(InputUtil.Color.BLUE + "Delete cancelled");
+            }
+
             movieService.deleteByTitle(title);
+            ViewUtil.printMessage(InputUtil.Color.PURPLE+"Movie deleted successfully!");
+            break;
+
         }
-
-
-        ViewUtil.printMessage("Movie deleted successfully!");
     }
 
 
