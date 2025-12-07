@@ -218,7 +218,7 @@ public class MovieApp {
 
             if (!confirm.equalsIgnoreCase("y")) {
                 ViewUtil.printMessage(InputUtil.Color.BLUE + "Delete cancelled.");
-                return; // IMPORTANT
+                return;
             }
 
             movieService.deleteByTitle(oldMovie.getTitle());
