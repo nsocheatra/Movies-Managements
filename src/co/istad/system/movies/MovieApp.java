@@ -15,7 +15,6 @@ public class MovieApp {
     private final HallService hallService;
 
 
-
     public MovieApp() {
         movieService = new MovieServiceImpl();
         hallService = new HallServiceImpl();
@@ -44,11 +43,9 @@ public class MovieApp {
     }
 
 
-
-
     private void viewBookings() {
 
-        BookingUtil.handleBooking(hallService,movieService);
+        BookingUtil.handleBooking(hallService, movieService);
 
 
     }
@@ -59,7 +56,7 @@ public class MovieApp {
         ViewUtil.printMovieList(movieService.findAll().reversed());
     }
 
-    private void ShowBooking(){
+    private void ShowBooking() {
         ViewUtil.printMessage("Display All Booked".toUpperCase());
         BookingUtil.CheckBooking(hallService);
 
@@ -98,10 +95,10 @@ public class MovieApp {
     private void updateById() {
         ViewUtil.printMessage("Update Movie by ID");
         ViewUtil.printMovieList(movieService.findAll().reversed());
-        while (true){
-            String id = InputUtil.getText(InputUtil.Color.RED+"(X | x) for cancel update" +InputUtil.Color.CYAN+"\nEnter Id to update"+InputUtil.Color.RESET);
+        while (true) {
+            String id = InputUtil.getText(InputUtil.Color.RED + "(X | x) for cancel update" + InputUtil.Color.CYAN + "\nEnter Id to update" + InputUtil.Color.RESET);
             if (id.equalsIgnoreCase("x")) {
-                ViewUtil.printMessage(InputUtil.Color.BLUE+"Update cancelled.");
+                ViewUtil.printMessage(InputUtil.Color.BLUE + "Update cancelled.");
                 return;
             }
             Movie oldMovies = movieService.findAll()
@@ -150,10 +147,10 @@ public class MovieApp {
         ViewUtil.printMessage("Delete Movie by ID");
         ViewUtil.printMovieList(movieService.findAll().reversed());
 
-        while (true){
-            String id = InputUtil.getId(InputUtil.Color.RED+"(X | x) for cancel delete" +InputUtil.Color.CYAN+"\nEnter ID to Delete"+InputUtil.Color.RESET);
+        while (true) {
+            String id = InputUtil.getId(InputUtil.Color.RED + "(X | x) for cancel delete" + InputUtil.Color.CYAN + "\nEnter ID to Delete" + InputUtil.Color.RESET);
             if (id.equalsIgnoreCase("x")) {
-                ViewUtil.printMessage(InputUtil.Color.BLUE+"Delete by ID has cancelled.");
+                ViewUtil.printMessage(InputUtil.Color.BLUE + "Delete by ID has cancelled.");
                 return;
             }
             Movie oldMovies = movieService.findAll()
@@ -170,16 +167,15 @@ public class MovieApp {
                     InputUtil.Color.YELLOW + "Are you sure you want to delete this movie \"" + oldMovies.getMvId()
                             + "\" ? (Y/N): " + InputUtil.Color.RESET
             );
-            if (!confirm.equalsIgnoreCase("y")){
+            if (!confirm.equalsIgnoreCase("y")) {
                 ViewUtil.printMessage(InputUtil.Color.BLUE + "Delete cancelled");
             }
 
             movieService.deleteByTitle(id);
-            ViewUtil.printMessage(InputUtil.Color.PURPLE+"Movie deleted successfully!");
+            ViewUtil.printMessage(InputUtil.Color.PURPLE + "Movie deleted successfully!");
             break;
 
         }
-
 
 
     }
