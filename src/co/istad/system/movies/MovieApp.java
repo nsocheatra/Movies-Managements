@@ -80,15 +80,21 @@ public class MovieApp {
 
     private void addNew() {
         ViewUtil.printMessage("Add New Movie");
-        String title = InputUtil.getText("Enter Title");
-        LocalDate releaseDate = InputUtil.getDate("Enter Release Date");
-        String genre = InputUtil.getText("Enter Genre");
-        LocalTime duration = InputUtil.getTime("Enter Duration");
-        String director = InputUtil.getText("Enter Director");
-        String mainCast = InputUtil.getText("Enter Caster");
-        Movie newMovie = new Movie(title, releaseDate, genre, duration, director, mainCast);
-        movieService.addNew(newMovie);
-        ViewUtil.printMessage("Add movies successfully!");
+        String title = InputUtil.getTitle(InputUtil.Color.RED + "(X | x) for cancel add new Movie" + InputUtil.Color.BLUE + "\nEnter Title" + InputUtil.Color.RESET);
+        while (true){
+            if (title.equalsIgnoreCase("x")) {
+                ViewUtil.printMessage(InputUtil.Color.BLUE + "Add new movie cancelled.");
+                return;
+            }
+            LocalDate releaseDate = InputUtil.getDate(InputUtil.Color.BLUE +"Enter Release Date");
+            String genre = InputUtil.getText(InputUtil.Color.BLUE +"Enter Genre");
+            LocalTime duration = InputUtil.getTime(InputUtil.Color.BLUE +"Enter Duration");
+            String director = InputUtil.getText(InputUtil.Color.BLUE +"Enter Director");
+            String mainCast = InputUtil.getText(InputUtil.Color.BLUE +"Enter Caster");
+            Movie newMovie = new Movie(title, releaseDate, genre, duration, director, mainCast);
+            movieService.addNew(newMovie);
+            ViewUtil.printMessage(InputUtil.Color.YELLOW +"Add movies successfully!");
+        }
 
     }
 
