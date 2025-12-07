@@ -5,6 +5,7 @@ import co.istad.system.movies.model.Movie;
 import co.istad.system.movies.service.HallService;
 import co.istad.system.movies.service.MovieService;
 import org.nocrala.tools.texttablefmt.BorderStyle;
+import org.nocrala.tools.texttablefmt.CellStyle;
 import org.nocrala.tools.texttablefmt.Table;
 
 import java.util.List;
@@ -68,22 +69,24 @@ public class BookingUtil {
         boolean hasBooking = false;
 
         // create table: 4 columns, fixed width 15 for simplicity
-        Table table = new Table(5, BorderStyle.UNICODE_BOX_DOUBLE_BORDER_WIDE);
-
-        table.addCell(Color.BLUE+"ID Movie");
-        table.addCell(Color.BLUE+"Title Movie");
-        table.addCell(Color.BLUE+"ID Hall");
-        table.addCell(Color.BLUE+"Name Hall");
-        table.addCell(Color.BLUE+"Status");
+        Table table = new Table(6, BorderStyle.UNICODE_BOX_DOUBLE_BORDER_WIDE);
+        CellStyle cellStyle = new CellStyle(CellStyle.HorizontalAlign.center);
+        table.addCell(Color.BLUE+"ID Hall"+cellStyle);
+        table.addCell(Color.BLUE+"Name Hall"+cellStyle);
+        table.addCell(Color.BLUE+"Title Movie"+cellStyle);
+        table.addCell(Color.BLUE+"Release Date"+cellStyle);
+        table.addCell(Color.BLUE+"Duration"+cellStyle);
+        table.addCell(Color.BLUE+"Status"+cellStyle);
 
         for (Hall hall : halls) {
             if (hall.getBookedMovie() != null) {
                 hasBooking = true;
-
-                table.addCell(Color.GREEN +hall.getBookedMovie().getMvId());
-                table.addCell(Color.GREEN +hall.getBookedMovie().getTitle());
                 table.addCell(Color.GREEN +hall.gethId());
                 table.addCell(Color.GREEN +hall.gethName());
+                table.addCell(Color.GREEN +hall.getBookedMovie().getTitle());
+                table.addCell(Color.GREEN +hall.getBookedMovie().getReleaseDate()+cellStyle);
+                table.addCell(Color.GREEN +hall.getBookedMovie().getDuration()+cellStyle);
+
                 table.addCell(Color.GREEN +"Booked");
             }
         }
