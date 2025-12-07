@@ -4,6 +4,7 @@ public class Hall {
     private String hId;
     private String hName;
     private boolean booked;
+    private Movie bookedMovie;
 
     public Hall(String hId, String hName) {
         this.hId = hId;
@@ -35,8 +36,11 @@ public class Hall {
     public boolean isBooked() {
         return booked;
     }
+    public Movie getBookedMovie() {
+        return bookedMovie;
+    }
 
-    public void setBooked(boolean booked) {
-        this.booked = booked;
+    public void setBookedMovie(Movie bookedMovie) {
+        this.bookedMovie = bookedMovie;
     }
 }

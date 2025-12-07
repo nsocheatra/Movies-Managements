@@ -1,7 +1,6 @@
 package co.istad.system.movies;
 
 import co.istad.system.movies.model.Movie;
-import co.istad.system.movies.model.ShowBooking;
 import co.istad.system.movies.service.*;
 import co.istad.system.movies.util.BookingUtil;
 import co.istad.system.movies.util.InputUtil;
@@ -9,7 +8,6 @@ import co.istad.system.movies.util.ViewUtil;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
 
 
 public class MovieApp {
@@ -52,6 +50,7 @@ public class MovieApp {
 
         BookingUtil.handleBooking(hallService,movieService);
 
+
     }
 
 
@@ -60,10 +59,12 @@ public class MovieApp {
         ViewUtil.printMovieList(movieService.findAll().reversed());
     }
 
-    private void ShowBooking(){List<ShowBooking> showBookings = ShowBookingService.findAllBooking();
-    ViewUtil.printChecking(showBookings);
-    }
+    private void ShowBooking(){
+        ViewUtil.printMessage("Display All Booked".toUpperCase());
+        BookingUtil.CheckBooking(hallService);
 
+
+    }
 
 
     private void addUpdate() {
@@ -166,7 +167,7 @@ public class MovieApp {
                 continue;
             }
             String confirm = InputUtil.getText(
-                    InputUtil.Color.YELLOW + "Are you sure you want to delete this movie \"" + oldMovies.getTitle()
+                    InputUtil.Color.YELLOW + "Are you sure you want to delete this movie \"" + oldMovies.getMvId()
                             + "\" ? (Y/N): " + InputUtil.Color.RESET
             );
             if (!confirm.equalsIgnoreCase("y")){

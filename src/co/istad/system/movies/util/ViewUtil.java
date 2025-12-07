@@ -2,7 +2,6 @@ package co.istad.system.movies.util;
 
 import co.istad.system.movies.model.Hall;
 import co.istad.system.movies.model.Movie;
-import co.istad.system.movies.model.ShowBooking;
 import org.nocrala.tools.texttablefmt.BorderStyle;
 import org.nocrala.tools.texttablefmt.CellStyle;
 import org.nocrala.tools.texttablefmt.Table;
@@ -167,33 +166,12 @@ public class ViewUtil {
         print(table.render(),true);
     }
 
-    public static void printChecking(List<ShowBooking> showBookingList){
-        Table table = new Table(5,BorderStyle.UNICODE_ROUND_BOX_WIDE);
-        table.addCell(Color.BLUE+ "ID Movie");
-        table.addCell(Color.BLUE+"Title Movie");
-        table.addCell(Color.BLUE+"ID Hall");
-        table.addCell(Color.BLUE+"Name Hall");
-        table.addCell(Color.BLUE+ "Status");
 
-        for(ShowBooking booked : showBookingList){
-            if (booked.getStatus()) {
-                table.addCell(Color.GREEN + booked.getMovie().getMvId());
-                table.addCell(Color.GREEN + booked.getMovie().getTitle());
-                table.addCell(Color.GREEN + booked.getHall().gethId());
-                table.addCell(Color.GREEN + booked.getHall().gethName());
-                table.addCell(Color.GREEN + "Booked");
-                break;
-            }
-        }
-
-        print(table.render(),true);
-    }
 
 
 
     public class Color {
         public static final String RESET = "\u001B[0m";
-        public static final String BLACK = "\u001B[30m";
         public static final String RED = "\u001B[31m";
         public static final String GREEN = "\u001B[32m";
         public static final String YELLOW = "\u001B[33m";

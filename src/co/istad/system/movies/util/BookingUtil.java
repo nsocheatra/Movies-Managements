@@ -4,6 +4,10 @@ import co.istad.system.movies.model.Hall;
 import co.istad.system.movies.model.Movie;
 import co.istad.system.movies.service.HallService;
 import co.istad.system.movies.service.MovieService;
+import org.nocrala.tools.texttablefmt.BorderStyle;
+import org.nocrala.tools.texttablefmt.Table;
+
+import java.util.List;
 
 public class BookingUtil {
     public static void handleBooking(HallService hallService, MovieService movieService) {
@@ -58,15 +62,55 @@ public class BookingUtil {
         }
     }
 
+    public static void CheckBooking(HallService hallService) {
+
+        List<Hall> halls = hallService.findAll();
+        boolean hasBooking = false;
+
+        // create table: 4 columns, fixed width 15 for simplicity
+        Table table = new Table(5, BorderStyle.UNICODE_BOX_DOUBLE_BORDER_WIDE);
+
+        table.addCell(Color.BLUE+"ID Movie");
+        table.addCell(Color.BLUE+"Title Movie");
+        table.addCell(Color.BLUE+"ID Hall");
+        table.addCell(Color.BLUE+"Name Hall");
+        table.addCell(Color.BLUE+"Status");
+
+        for (Hall hall : halls) {
+            if (hall.getBookedMovie() != null) {
+                hasBooking = true;
+
+                table.addCell(Color.GREEN +hall.getBookedMovie().getMvId());
+                table.addCell(Color.GREEN +hall.getBookedMovie().getTitle());
+                table.addCell(Color.GREEN +hall.gethId());
+                table.addCell(Color.GREEN +hall.gethName());
+                table.addCell(Color.GREEN +"Booked");
+            }
+        }
+
+        if (!hasBooking) {
+            ViewUtil.printMessageNoTable(Color.RED + "No halls are booked yet!" + Color.RESET);
+        } else {
+            try {
+                System.out.println(table.render());
+            } catch (Exception e) {
+                ViewUtil.printMessageNoTable(Color.RED + "Failed to render table!" + Color.RESET);            }
+        }
+    }
+
+
+
+
+
+
+
     public class Color {
         public static final String RESET = "\u001B[0m";
-        public static final String BLACK = "\u001B[30m";
         public static final String RED = "\u001B[31m";
         public static final String GREEN = "\u001B[32m";
         public static final String YELLOW = "\u001B[33m";
         public static final String BLUE = "\u001B[34m";
         public static final String PURPLE = "\u001B[35m";
         public static final String CYAN = "\u001B[36m";
-        public static final String WHITE = "\u001B[37m";
     }
 }

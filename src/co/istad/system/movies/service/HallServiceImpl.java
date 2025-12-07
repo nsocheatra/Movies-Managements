@@ -4,7 +4,6 @@ import co.istad.system.movies.database.HallDatabase;
 import co.istad.system.movies.model.Hall;
 import co.istad.system.movies.model.Movie;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class HallServiceImpl implements HallService {
@@ -30,14 +29,25 @@ public class HallServiceImpl implements HallService {
                 .orElse(null);
     }
 
+//    @Override
+//    public boolean bookHall(Hall hall , Movie movie) {
+//
+//        if (!hall.isBooked()) {
+//            hall.setBookedMovie(true);
+//            return true;
+//        }
+//        return false;
+//
+//    }
+
+
     @Override
-    public boolean bookHall(Hall hall , Movie movie) {
-
-        if (!hall.isBooked()) {
-            hall.setBooked(true);
-            return true;
+    public boolean bookHall(Hall hall, Movie movie) {
+        if (hall.getBookedMovie() !=null){
+            return false;
         }
-        return false;
 
+        hall.setBookedMovie(movie);
+        return true;
     }
 }
