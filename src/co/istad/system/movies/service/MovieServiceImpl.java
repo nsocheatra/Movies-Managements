@@ -32,11 +32,19 @@ public class MovieServiceImpl implements MovieService {
 
     }
 
+   // @Override
+    //public void deleteByTitle(String title) {
+       // movieDb.deleteByTitle(title);
+
+    //}
     @Override
     public void deleteByTitle(String title) {
-        movieDb.deleteByTitle(title);
-
+        movieDb.getDataset()
+                .removeIf(movie ->
+                        movie.getTitle().trim().equalsIgnoreCase(title.trim())
+                );
     }
+
 
     @Override
     public List<Movie> findAll() {

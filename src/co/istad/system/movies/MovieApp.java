@@ -188,32 +188,45 @@ public class MovieApp {
         ViewUtil.printMessage("Delete Movie by Title");
         ViewUtil.printMovieList(movieService.findAll().reversed());
 
-        while (true){
-            String title = InputUtil.getTitle(InputUtil.Color.RED+"(X | x) for cancel delete" +InputUtil.Color.CYAN+"\nEnter Title to Delete"+InputUtil.Color.RESET);
+        while (true) {
+            String title = InputUtil.getTitle(
+                    InputUtil.Color.RED + "(X | x) for cancel delete"
+                            + InputUtil.Color.CYAN + "\nEnter Title to Delete "
+                            + InputUtil.Color.RESET
+            ).trim();
+
             if (title.equalsIgnoreCase("x")) {
-                ViewUtil.printMessage(InputUtil.Color.BLUE+"Delete by Title has cancelled.");
+                ViewUtil.printMessage(InputUtil.Color.BLUE + "Delete by Title has cancelled.");
                 return;
             }
-            Movie oldMovies = movieService.findAll()
+
+            Movie oldMovie = movieService.findAll()
                     .stream()
-                    .filter(movie -> movie != null && movie.getTitle().trim().trim().equals(title))
+                    .filter(movie -> movie != null &&
+                            movie.getTitle().trim().equalsIgnoreCase(title))
                     .findFirst()
                     .orElse(null);
-            if (oldMovies == null) {
-                System.out.println("Movie with Title  not found!");
-                System.out.println("Please Again!!!");
+
+            if (oldMovie == null) {
+                System.out.println("Movie with this title not found!");
+                System.out.println("Please try again!");
                 continue;
             }
+
             String confirm = InputUtil.getText(
-                    InputUtil.Color.YELLOW + "Are you sure you want to delete this movie \"" + oldMovies.getTitle()
-                    + "\" ? (Y/N): " + InputUtil.Color.RESET
+                    InputUtil.Color.YELLOW + "Are you sure you want to delete movie \""
+                            + oldMovie.getTitle()
+                            + "\" ? (Y/N): "
+                            + InputUtil.Color.RESET
             );
-            if (!confirm.equalsIgnoreCase("y")){
-                ViewUtil.printMessage(InputUtil.Color.BLUE + "Delete cancelled");
+
+            if (!confirm.equalsIgnoreCase("y")) {
+                ViewUtil.printMessage(InputUtil.Color.BLUE + "Delete cancelled.");
+                return; // IMPORTANT
             }
 
-            movieService.deleteByTitle(title);
-            ViewUtil.printMessage(InputUtil.Color.PURPLE+"Movie deleted successfully!");
+            movieService.deleteByTitle(oldMovie.getTitle());
+            ViewUtil.printMessage(InputUtil.Color.PURPLE + "Movie deleted successfully!");
             break;
 
         }
